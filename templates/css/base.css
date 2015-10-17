@@ -1,0 +1,85 @@
+/* base gryd */
+body {
+	background-color: #D8D8D8;
+}
+
+header {
+	/*border: 1px solid black;*/
+	width: 100%;
+	height: 80px;
+	background-color: #006666;
+}
+
+div.search_menu {
+	border: 1px solid black;
+	width: 100%;
+	min-height: 200px;
+	background-color: #A0A0A0;
+	color: #000000;
+}
+
+div.search_result {
+	border: 1px solid black;
+	width: 100%;
+	min-height: 100px;	
+}
+
+/* logo */
+div.logo {
+	/*border: 1px solid black;*/
+	min-width: 50px;
+	min-height: 50px;
+	white-space: nowrap;
+	overflow: hidden;
+	display: inline-block;
+	margin-left: 250px;
+	margin-top: 10px;
+	color: #FFFFFF;
+}
+
+p.logo {
+	/*font-family: "../source/QUARTZO.ttf"; /* Имя шрифта */
+	font-size: 50;
+	font-style: bold;
+	line-height: 0.8;
+}
+
+p.motto {
+	margin-left: 30px;
+	font-size: 12;
+	font-style: italic;
+	line-height: 0.1;
+}
+
+/* search_menu */
+div.search_menu div.content {
+	margin: 0 auto;
+	margin-top: 10px;
+	border: 1px solid black;
+	width: 800px;
+	min-height: 100px;
+	overflow: hidden;
+}
+
+div.search_menu div.content div.description {
+	width: 500px;
+	overflow: hidden;
+	float: right;
+	font-size: 13;
+	text-align: right;
+	margin: 10px;
+	font-style: italic;
+	/*background-color: red*/
+}
+
+div.search_menu div.content div.organism_choose {
+	border: 1px solid black;
+	margin-top: 10px;
+	width: 100%;
+	float: left;
+}
+
+div.search_menu div.content div.organism_choose form {
+	margin: 0 auto;
+	width: 80%;
+}

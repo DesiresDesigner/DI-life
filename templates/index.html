@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>  DI-LIFE | Create an organic of your dreams </title>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<!-- our base css -->
+		<link rel="stylesheet" href="css/base.css">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" defer></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+	</head>
+	<body>
+		<header>
+			<div class = "logo">
+				<p class = "logo"> DI-LIFE </p>
+				<p class = "motto"> Create an organic of your dreams </p>
+			</div>
+		</header>
+
+		<div class = "search_menu" >
+			<div class = "content">
+				<div class = "description">
+					<p>
+						Did you ever want to make something unique out of something normal? 
+						For example, instead of the usual lamp on the bedside table to put a glowing cactus, or to give your girlfriend 
+						a rose with multicolored petals? Try our service for the recipe of its unique body. Just follow the instructions, 
+						and you might find something interesting.
+					</p>
+				</div>
+				<br>
+				<div class = "organism_choose">
+					<form id="bootstrapSelectForm" method="post" class="form-horizontal">
+					    <select class="selectpicker">
+						    <option>Mustard</option>
+						    <option>Ketchup</option>
+						    <option>Relish</option>
+						</select>
+
+						<label >The first step is to select the organism from the list with which you wish to work:</label>
+						<select name="organism">
+							<option value="1">prop with id 1</option>
+							<option value="2">prop with id 2</option>
+							<option value="3">prop with id 3</option>
+							<option value="4">prop with id 4</option>
+							<option value="5">prop with id 5</option>
+						</select>
+					</form>
+				</div>
+				<div class = "properties_choose"></div>
+				<div class = "randomize_menu"></div>
+			</div>
+		</div>
+
+		<div class = "search_result" >
+			
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.selectpicker').selectpicker({
+		      style: 'btn-info',
+		      size: 4
+		  	});
+		});
+	</script>>
+
+</html>
