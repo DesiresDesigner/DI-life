@@ -15,6 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/js/bootstrap-select.min.js"></script>
+        <script src="{% static "life/js/docready.js" %}"></script>
 
 	</head>
 	<body>
@@ -37,17 +38,32 @@
 
 		<div class = "search_menu" >
 			<div class = "content">
-				<div class = "settings">
-					<form>
-                        <p>The first step is to select the organism from the list with which you wish to work:</p>
-					    <select name="organism" class="selectpicker"> <!-- ToDo: количество видимых единовременно опций -->
-						    <option value="1">prop with id 1</option>
-							<option value="2">prop with id 2</option>
-							<option value="3">prop with id 3</option>
-							<option value="4">prop with id 4</option>
-							<option value="5">prop with id 5</option>
-						</select>
-                        <p>And then add the properties you want to assign to the selected organism:</p>
+                <div class = "settings">
+                    <div id = "step1">
+                        <p>STEP 1: select the class of organism you wish to work:</p>
+
+                        <div id = "choose_class" class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default" for="class1">
+                                <input type="radio" name="options" id="class1"> Class one
+                            </label>
+                            <label class="btn btn-default" for="class2">
+                                <input type="radio" name="options" id="class2"> Class two
+                            </label>
+                        </div>
+                    </div>
+                    <div id = "step2">
+                        <p>STEP 2: select the organism from the list with which you wish to work:</p>
+                        <select id = "choose_subclass" name="organism" class="selectpicker"> <!-- ToDo: количество видимых единовременно опций -->
+                            <option disabled selected> -- select an organism -- </option>
+                            <option value="1">prop with id 1</option>
+                            <option value="2">prop with id 2</option>
+                            <option value="3">prop with id 3</option>
+                            <option value="4">prop with id 4</option>
+                            <option value="5">prop with id 5</option>
+                        </select>
+                    </div>
+                    <div id = "step3">
+                        <p>STEP 3: add the properties you want to assign to the selected organism:</p>
                         <fieldset class = "checkboxes">
                             <div><input type="checkbox" name="animal" value="Cat" />Cats</div>
                             <div><input type="checkbox" name="animal" value="Dog" />Dogs</div>
@@ -62,8 +78,7 @@
                             <div><input type="checkbox" name="animal" value="Dog" />Dogs</div>
                             <div><input type="checkbox" name="animal" value="Bird" />Birds</div>
                         </fieldset>
-                        <input type="submit" value="Get recipe!" class="btn btn-default"/>
-					</form>
+                    </div>
 				</div>
 				<div class = "randomize_menu">
                     <div class = "content">
@@ -94,12 +109,12 @@
 	</body>
 
 	<script type="text/javascript">
-		$(document).ready(function() {
+		/*$(document).ready(function() {
 			$('.selectpicker').selectpicker({
 		      //style: 'btn-warning',
 		      size: 4
 		  	});
-		});
+		});*/
 	</script>
 
 </html>

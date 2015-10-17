@@ -92,38 +92,32 @@ header div.description p {
 div.search_menu div.content {
 	margin: 0 auto;
 	margin-top: 10px;
-	/*border: 1px solid black;*/
-	width: 800px;
+	border: 1px solid black;
+	width: 90%;
 	overflow: hidden;
 }
 
-	/* search_menu settings*/
+    /* search_menu settings*/
 div.search_menu div.content div.settings {
-	/*border: 1px solid black;*/
+    /*border: 1px solid black;*/
     padding-bottom: 10px;
-	width: 100%;
-	min-height: 10px;
-	float: left;
-}
-
-div.search_menu div.content div.settings form {
+    width: 80%;
+    min-height: 10px;
 	margin: 0 auto;
-	width: 80%;
     text-align: center;
 }
 
-div.search_menu div.content div.settings form p {
-	margin-top: 10px;
+div.search_menu div.content div.settings p {
+    margin-top: 10px;
 }
 
-div.search_menu div.content div.settings form fieldset {
+div.search_menu div.content div.settings fieldset {
     margin: 0 auto;
     margin-bottom: 10px;
-    /*border: 1px solid black;*/
-	width: 80%;
+    width: 50%;
 }
 
-div.search_menu div.content div.settings form fieldset div{
+div.search_menu div.content div.settings  fieldset div{
     float: left;
     margin-right: 15px;
 }
@@ -180,4 +174,13 @@ div.search_result div.result_content div.order p {
 div.search_result div.result_content div.order input {
     float: right;
     margin-right: 30px;
+}
+
+/* settings animation */
+#step2 {
+	display: none;
+}
+
+#step3 {
+	display: none;
 }
