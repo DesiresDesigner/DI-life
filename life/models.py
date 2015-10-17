@@ -13,6 +13,7 @@ class Species(models.Model):
 
 class Property(models.Model):
     name = models.CharField(max_length=200)
+    type = models.CharField(max_length=100)
 
     @property
     def kingdom(self):
