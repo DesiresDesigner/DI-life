@@ -1,6 +1,8 @@
 from django.http import HttpResponse, HttpResponseBadRequest
 from .models import Species, Kingdom, Property, Recipe
 from django.core.exceptions import ObjectDoesNotExist
+from django.core import serializers
+
 # species=4&properties=5,6,7,11
 class Order:
     def post(request):
@@ -20,8 +22,9 @@ class Order:
 class SpeciesRest:
     def get_all(request):
         if (request.method == 'GET'):
-            s = Species.objects.all()
-            HttpResponse(', '.join(map(lambda i: i.name, s)))
+            all_species = Species.objects.all()
+            data = serializers.serialize('json', all_species)
+            HttpResponse(data)
         else:
             HttpResponseBadRequest("bad request")
 
