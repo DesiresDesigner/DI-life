@@ -23,10 +23,21 @@ class Order:
             return HttpResponse("")
 
 
-class SpeciesRest:
+class SpeciesRest():
     def get_all(request):
         if (request.method == 'GET'):
             all_species = Species.objects.all()
+            data = serializers.serialize('json', all_species)
+            return HttpResponse(data)
+        else:
+            return HttpResponseBadRequest("bad request")
+    
+    def get_all_with_properties(request):
+        if (request.method == 'GET'):
+            all_species = Species.objects.all()
+            all_properties = Property.objects.all()
+            for prop in all_properties:
+                prop['properties'][prop.id] = prop.name
             data = serializers.serialize('json', all_species)
             return HttpResponse(data)
         else:
