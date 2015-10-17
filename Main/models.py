@@ -2,27 +2,27 @@ from django.db import models
 
 # Create your models here.
 
-class Class(models.Model):
+class Kingdom(models.Model):
     name = models.CharField(max_length=200)
 
-class Subclass(models.Model):
+class Species(models.Model):
     name = models.CharField(max_length=200)
-    cls = models.ForeignKey(Class)
+    kingdom = models.ForeignKey(Kingdom)
 
 class Properties(models.Model):
     name = models.CharField(max_length=200)
     @property
-    def cls(self):
-        return self.subclass.cls
-    subclass = models.ForeignKey(Subclass)
+    def kingdom(self):
+        return self.species.kingdom
+    species = models.ForeignKey(Species)
 
 class Recipes(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=1000)
     @property
-    def cls(self):
-        return self.subclass.cls
-    subclass = models.ForeignKey(Subclass)
+    def kingdom(self):
+        return self.species.kingdom
+    species = models.ForeignKey(Species)
     properties = models.ManyToManyField(Properties)
 
 
