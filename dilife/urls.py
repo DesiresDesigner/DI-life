@@ -24,7 +24,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^species$', rest.SpeciesRest.get_all),
+    url(r'^species$', rest.SpeciesRest.get_all, name='get_all'),
     url(r'^order/', rest.Order.post),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
