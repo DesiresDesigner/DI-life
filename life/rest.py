@@ -5,6 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core import serializers
 from django.shortcuts import render
 
+
 # species=4&properties=5,6,7,11
 class Order:
     def post(request):
@@ -21,6 +22,7 @@ class Order:
 
             return HttpResponse("")
 
+
 class SpeciesRest:
     def get_all(request):
         if (request.method == 'GET'):
@@ -29,6 +31,7 @@ class SpeciesRest:
             return HttpResponse(data)
         else:
             return HttpResponseBadRequest("bad request")
+
 
 def index(request):
     return render(request, 'life/index.html')
