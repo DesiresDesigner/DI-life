@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.conf.urls.static import static, serve
 from django.conf import settings
 
+from Main import rest
+
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^order/', )
+    url(r'^species$', rest.Species.get_all),
+    url(r'^order/', rest.Order.post),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
