@@ -24,6 +24,12 @@ div.search_result {
 	min-height: 100px;	
 }
 
+/* text */
+p {
+    text-align: center;
+    font-size: 14;
+}
+
 /* logo */
 div.logo {
 	/*border: 1px solid black;*/
@@ -40,7 +46,7 @@ div.logo {
 p.logo {
 	/*font-family: "../source/QUARTZO.ttf"; /* Имя шрифта */
 	font-size: 50;
-	font-style: bold;
+	font-weight: bold;
 	line-height: 0.8;
 }
 
@@ -60,26 +66,75 @@ div.search_menu div.content {
 	min-height: 100px;
 	overflow: hidden;
 }
-
+	/* search_menu description*/
 div.search_menu div.content div.description {
 	width: 500px;
 	overflow: hidden;
 	float: right;
-	font-size: 13;
-	text-align: right;
 	margin: 10px;
 	font-style: italic;
 	/*background-color: red*/
 }
 
-div.search_menu div.content div.organism_choose {
-	border: 1px solid black;
+div.search_menu div.content div.description p {
+	font-size: 12;
+	text-align: right;
+	font-style: italic;
+}
+
+	/* search_menu settings*/
+div.search_menu div.content div.settings {
+	/*border: 1px solid black;*/
 	margin-top: 10px;
+    padding-bottom: 10px;
 	width: 100%;
+	min-height: 10px;
 	float: left;
 }
 
-div.search_menu div.content div.organism_choose form {
+div.search_menu div.content div.settings form {
 	margin: 0 auto;
 	width: 80%;
+    text-align: center;
+}
+
+div.search_menu div.content div.settings form p {
+	margin-top: 10px;
+}
+
+div.search_menu div.content div.settings form fieldset {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    /*border: 1px solid black;*/
+	width: 80%;
+}
+
+div.search_menu div.content div.settings form fieldset div{
+    float: left;
+    margin-right: 15px;
+}
+
+	/* search_menu properties_choose*/
+div.search_menu div.content div.randomize_menu {
+	/*border: 1px solid black;*/
+	margin-top: 10px;
+	width: 100%;
+    overflow: hidden;
+	float: left;
+}
+
+div.search_menu div.content div.randomize_menu div.content {
+    border: 1px solid black;
+    width: 300px;
+	float: right;
+    padding-right: 10px;
+}
+
+div.search_menu div.content div.randomize_menu div.content p {
+    text-align: right;
+}
+
+div.search_menu div.content div.randomize_menu div.content input {
+    float: right;
+    margin-right: 30px;
 }

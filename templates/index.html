@@ -34,26 +34,40 @@
 					</p>
 				</div>
 				<br>
-				<div class = "organism_choose">
-					<form id="bootstrapSelectForm" method="post" class="form-horizontal">
-					    <select class="selectpicker">
-						    <option>Mustard</option>
-						    <option>Ketchup</option>
-						    <option>Relish</option>
-						</select>
-
-						<label >The first step is to select the organism from the list with which you wish to work:</label>
-						<select name="organism">
-							<option value="1">prop with id 1</option>
+				<div class = "settings">
+					<form>
+                        <p>The first step is to select the organism from the list with which you wish to work:</p>
+					    <select name="organism" class="selectpicker"> <!-- ToDo: количество видимых единовременно опций -->
+						    <option value="1">prop with id 1</option>
 							<option value="2">prop with id 2</option>
 							<option value="3">prop with id 3</option>
 							<option value="4">prop with id 4</option>
 							<option value="5">prop with id 5</option>
 						</select>
+                        <p>And then add the properties you want to assign to the selected organism:</p>
+                        <fieldset class = "checkboxes">
+                            <div><input type="checkbox" name="animal" value="Cat" />Cats</div>
+                            <div><input type="checkbox" name="animal" value="Dog" />Dogs</div>
+                            <div><input type="checkbox" name="animal" value="Bird" />Birds</div>
+                            <div><input type="checkbox" name="animal" value="Cat" />Cats</div>
+                            <div><input type="checkbox" name="animal" value="Dog" />Dogs</div>
+                            <div><input type="checkbox" name="animal" value="Bird" />Birds</div>
+                            <div><input type="checkbox" name="animal" value="Cat" />Cats</div>
+                            <div><input type="checkbox" name="animal" value="Dog" />Dogs</div>
+                            <div><input type="checkbox" name="animal" value="Bird" />Birds</div>
+                            <div><input type="checkbox" name="animal" value="Cat" />Cats</div>
+                            <div><input type="checkbox" name="animal" value="Dog" />Dogs</div>
+                            <div><input type="checkbox" name="animal" value="Bird" />Birds</div>
+                        </fieldset>
+                        <input type="submit" value="Get recipe!" class="btn btn-default"/>
 					</form>
 				</div>
-				<div class = "properties_choose"></div>
-				<div class = "randomize_menu"></div>
+				<div class = "randomize_menu">
+                    <div class = "content">
+                        <p>Or you can randomize search parameters:</p>
+                        <input type="submit" value="Randomize" class="btn btn-default"/>
+                    </div>
+                </div>
 			</div>
 		</div>
 
@@ -65,7 +79,7 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.selectpicker').selectpicker({
-		      style: 'btn-info',
+		      //style: 'btn-warning',
 		      size: 4
 		  	});
 		});
