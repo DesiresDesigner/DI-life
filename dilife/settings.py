@@ -83,6 +83,10 @@ DATABASES = {
     }
 }
 
+STATICFILES_DIRS = (
+    ('s', 'C:\\Users\\maxim\\PycharmProjects\\DI-life\\templates')
+)
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

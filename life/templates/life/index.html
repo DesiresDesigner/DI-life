@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <html>
 	<head>
 		<title>  DI-LIFE | Create an organic of your dreams </title>
@@ -7,7 +8,8 @@
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 		<!-- our base css -->
-		<link rel="stylesheet" href="css/base.css">
+        <!-- <link rel="stylesheet" href="css/base.css"> -->
+        <link rel="stylesheet" href="{% static "life/css/base.css" %}">
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/css/bootstrap-select.min.css">
 		<!-- Latest compiled and minified JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -18,7 +20,8 @@
 	<body>
 		<header>
 			<div class = "logo">
-                <img src = "source/logo.png">
+                <!-- <img src = "source/logo.png"> -->
+                <img src="{% static "life/source/logo.png" %}">
 				<!--<p class = "logo"> DI-LIFE </p>
 				<p class = "motto"> Create an organic of your dreams </p>-->
 			</div>

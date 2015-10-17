@@ -1,7 +1,9 @@
 from django.http import HttpResponse, HttpResponseBadRequest
 from .models import Species, Kingdom, Property, Recipe
+from django.template import RequestContext, loader
 from django.core.exceptions import ObjectDoesNotExist
 from django.core import serializers
+from django.shortcuts import render
 
 # species=4&properties=5,6,7,11
 class Order:
@@ -24,9 +26,9 @@ class SpeciesRest:
         if (request.method == 'GET'):
             all_species = Species.objects.all()
             data = serializers.serialize('json', all_species)
-            HttpResponse(data)
+            return HttpResponse(data)
         else:
-            HttpResponseBadRequest("bad request")
+            return HttpResponseBadRequest("bad request")
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return render(request, 'life/index.html')

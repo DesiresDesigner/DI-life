@@ -17,8 +17,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from life import rest
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^species$', rest.SpeciesRest.get_all, name='get_all'),
-    url(r'^order/', rest.Order.post),
-]
+    url(r'^species$', rest.SpeciesRest.get_all),
+    # url(r'^order/', rest.Order.post),
+    url(r'', rest.index),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
