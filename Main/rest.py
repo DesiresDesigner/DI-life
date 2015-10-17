@@ -17,7 +17,7 @@ class Order:
 
             return HttpResponse("")
 
-class Species:
+class SpeciesRest:
     def get_all(request):
         if (request.method == 'GET'):
             s = Species.objects.all()
