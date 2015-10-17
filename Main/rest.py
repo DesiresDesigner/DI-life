@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseBadRequest
 from .models import Species, Kingdom, Property, Recipe
 from django.core.exceptions import ObjectDoesNotExist
-# species=4, properties=5,6,7,11
+# species=4&properties=5,6,7,11
 class Order:
     def post(request):
         if (request.method == 'POST'):
@@ -11,7 +11,7 @@ class Order:
                 s = Species.objects.get(id=species)
                 p = Property.objects.filter(id__in=properties)
                 # external api
-                HttpResponse("OK: " + s.name + " (" + map(lambda i: i.name + ", ", p) + ")")
+                HttpResponse("OK: {0} ({1})".format(s.name, ', '.join(map(lambda i: i.name, p))))
             except ObjectDoesNotExist:
                 return HttpResponseBadRequest("Species with the specified ID not found")
 
@@ -21,7 +21,7 @@ class SpeciesRest:
     def get_all(request):
         if (request.method == 'GET'):
             s = Species.objects.all()
-            HttpResponse(map(lambda i: i.name + ", ", s))
+            HttpResponse(', '.join(map(lambda i: i.name, s)))
         else:
             HttpResponseBadRequest("bad request")
 
