@@ -9,6 +9,7 @@ $(document).ready(function() {
     $('#choose_class label').click(function(event) {
         var className = $(event.target).attr('for');
         $('#step3').slideUp(400, function(){});
+        $('iframe').hide();
 
         console.log("/species/" + className);
         $.ajax({
@@ -51,9 +52,8 @@ $(document).ready(function() {
                 $("#prop_boxes").html("");
                 $.each( result, function( key, val ) {
                     console.log(val);
-                    $("#prop_boxes").append(`<div>
-                        <input type="checkbox" value="${val['fields']['name']}" />${val['fields']['name']}
-                    </div>`);
+                    const name = val['fields']['name'];
+                    $("#prop_boxes").append(`<div><input type="checkbox" value="${name}" />${name}</div>`);
                 })
              }
             });
@@ -67,11 +67,14 @@ $(document).ready(function() {
         $('#waiting_result_animation').show();
             const iframe = document.createElement('iframe');
             iframe.src = 'http://www.plasmid.com/order_preps/';
-            iframe.style.width = '600px';
-            iframe.style.height = '400px';
+            iframe.style.width = '100%';
+            iframe.style.height = '1000px';
             const wresult = document.getElementById('waiting_result');
             wresult.replaceChild(iframe, wresult.getElementsByTagName('img')[0]);
-            iframe.onload = e => setTimeout(() => $('iframe').scrollTo(200), 4000);
+            iframe.onload = function (e) {
+                setTimeout(function () {
+                    $('body').scrollTo(400);
+                }, 4000);
+            };
         });
-
 });
