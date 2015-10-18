@@ -74,6 +74,14 @@ $(document).ready(function() {
             success: function(result){
                 $('#waiting_result_animation').hide();
 
+                var algorythm_array = result.split(";");
+
+                var recipe_algorythm = "";
+                for (var i = 0; i < algorythm_array.length; i += 1)
+                    recipe_algorythm += algorythm_array[i] + "<br>";
+
+                $('#generated_result').html("<H2> We are ready to reveal to you the secret of such organism! </H2> <p>" + recipe_algorythm + "</p>");
+
                 $('#generated_result').slideDown(400, function(data){});
 
                 const iframe = document.createElement('iframe');

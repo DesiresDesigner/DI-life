@@ -41,12 +41,12 @@ def create_plant(species, proplist):
 
     for prop in proplist:
         recipe.properties.add(prop)
-        recipe.description += "pGreenII\n"
+        recipe.description += "pGreenII;"
 
         if prop.type == "color":
             protein = prop.protein
 
-            recipe.description += (random.choice(restriction_sites) + "\n")
-            recipe.description += (protein.name + "\n")
+            recipe.description += (random.choice(restriction_sites) + ";")
+            recipe.description += (protein.name + ";")
         elif prop.type == "smell":
             pass
