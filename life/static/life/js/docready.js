@@ -43,6 +43,8 @@ $(document).ready(function() {
 
     $('#choose_subclass').change(function() {
         var subclassName = this.value;
+        $('iframe').hide();
+        $('#generated_result').slideUp(400, function(data){});
         $('#step3').slideDown(400, function(data){
 
             $.ajax({
