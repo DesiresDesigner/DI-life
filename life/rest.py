@@ -26,7 +26,7 @@ class Order:
 class SpeciesRest:
     def get_by_kingdom(request, k_id):
         if (request.method == 'GET'):
-            all_species = Species.objects.filter(kingdom=k_id)
+            all_species = Species.objects.filter(kingdom=Kingdom.objects.filter(name=k_id))
             data = serializers.serialize('json', all_species)
             return HttpResponse(data)
         else:
