@@ -1,18 +1,20 @@
 'use strict';
 $(document).ready(function() {
 
+    var className;
+    var subclassName;
+
     $('.selectpicker').selectpicker({
       //style: 'btn-warning',
       size: 4
     });
 
     $('#choose_class label').click(function(event) {
-        var className = $(event.target).attr('for');
+        className = $(event.target).attr('for');
         $('#step3').slideUp(400, function(){});
         $('iframe').hide();
         $('#generated_result').slideUp(400, function(data){});
 
-        console.log("/species/" + className);
         $.ajax({
             dataType: "json",
             url: "/species/" + className,
@@ -42,7 +44,7 @@ $(document).ready(function() {
     });
 
     $('#choose_subclass').change(function() {
-        var subclassName = this.value;
+        subclassName = this.value;
         $('iframe').hide();
         $('#generated_result').slideUp(400, function(data){});
         $('#step3').slideDown(400, function(data){
@@ -51,10 +53,8 @@ $(document).ready(function() {
             dataType: "json",
             url: "/properties/" + data,
             success: function(result){
-                console.log(result);
                 $("#prop_boxes").html("");
                 $.each( result, function( key, val ) {
-                    console.log(val);
                     const name = val['fields']['name'];
                     $("#prop_boxes").append(`<div><input type="checkbox" value="${name}" />${name}</div>`);
                 })
@@ -69,9 +69,26 @@ $(document).ready(function() {
     $('#get_recipe_btn').click(function() {
         $('#waiting_result_animation').show();
 
+        var search_settings_array = [];
+        search_settings_array.push(className);
+        search_settings_array.push(subclassName);
+
+        var form = $("#prop_boxes");
+         $( "#prop_boxes div input" ).each(function(index, element) {
+             if (element.checked)
+                search_settings_array.push(element.value);
+
+         });
+
+        console.log(search_settings_array);
+        var myJsonString = JSON.stringify(search_settings_array);
+        console.log(myJsonString);
+
          $.ajax({
-            url: "/create",
-            success: function(result){
+             url: "/create",
+             type: "GET",
+             data: {'data': myJsonString},
+             success: function(result){
                 $('#waiting_result_animation').hide();
 
                 var algorythm_array = result.split(";");

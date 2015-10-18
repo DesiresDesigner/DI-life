@@ -11,7 +11,17 @@ def create(kingdom, species, proplist):
         return create_plant(species, proplist)
 
 def create_bact(species, proplist):
-    pass
+    recipe = Recipe()
+
+    recipe.description += "p15TV-L;"
+    for prop in proplist:
+        if prop.type == "color":
+            protein = prop.protein
+
+            recipe.description += (random.choice(restriction_sites) + ";")
+            recipe.description += (protein + ";")
+
+    return recipe
 
 restriction_sites = ["HpaI",
 		"FspI",
@@ -36,17 +46,27 @@ restriction_sites = ["HpaI",
 		"ApaLI",
 		"NruI"]
 
-def create_plant(species, proplist):
+def create_plant(proplist):
     recipe = Recipe()
 
-    for prop in proplist:
-        recipe.properties.add(prop)
-        recipe.description += "pGreenII;"
+    recipe.description += "pGreenII;"
 
+    for prop in proplist:
         if prop.type == "color":
             protein = prop.protein
 
             recipe.description += (random.choice(restriction_sites) + ";")
-            recipe.description += (protein.name + ";")
+            recipe.description += (protein + ";")
         elif prop.type == "smell":
-            pass
+            if prop.name == "hypoallergenic":
+                recipe.description += "+RNA interference;"
+                #http://www.evrogen.ru/services/RNA-i/service-rna-i.shtml
+                continue
+
+            recipe.description += (random.choice(restriction_sites) + ";")
+            recipe.description += ("geranylDiphosphateSynthase;")
+            recipe.description += ("linaloolSynthase;")
+            if prop.name == "rose's smell":
+                recipe.description += "R4HEK6 (R4HEK6_SOYBN);"
+
+    return recipe

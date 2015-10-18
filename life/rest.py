@@ -4,6 +4,8 @@ from django.template import RequestContext, loader
 from django.core.exceptions import ObjectDoesNotExist
 from django.core import serializers
 from django.shortcuts import render
+from .engine import create
+import json
 
 from django.db.models import Q
 # species=4&properties=5,6,7,11
@@ -34,9 +36,17 @@ class SpeciesRest:
 
 
     def get_recent_recipe(request):
-        recipe = Recipe()
-        recipe.name = "Winter bear"
-        recipe.description = "Get autobus; Send to war; La-la-la; Arbus; Airbus; OLOLO; SHOW MUST GO ON!; std::endl"
+        #print(request.GET['data'])
+
+        #keys = request.GET.iterkeys()
+        #recipe = Recipe()
+        #recipe.name = "Winter bear"
+        #recipe.description = "Get autobus; Send to war; La-la-la; Arbus; Airbus; OLOLO; SHOW MUST GO ON!; std::endl"
+
+        print(request.GET.get('data'))
+        inp = json.loads(request.GET.get('data'))
+        recipe = create(inp[0], inp[1], inp[2:])
+        recipe.save()
 
         return HttpResponse(recipe.description)
 
