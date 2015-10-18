@@ -26,6 +26,7 @@ urlpatterns = [
     # url(r'^species/(?P<k_id>[0-9]+)$', rest.SpeciesRest.get_by_kingdom),
     url(r'^species/(?P<k_id>\w{0,50})$', rest.SpeciesRest.get_by_kingdom),
     url(r'^properties/(?P<specname>\w{0,50})$', rest.SpeciesRest.get_props_for_spec),
+    url(r'^create$', rest.SpeciesRest.get_recent_recipe),
     # url(r'^order/', rest.Order.post),
     url(r'', rest.index),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

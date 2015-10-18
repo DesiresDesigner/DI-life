@@ -12,6 +12,9 @@ class Species(models.Model):
     kingdom = models.ForeignKey(Kingdom)
 
 
+class Protein(models.Model):
+    name = models.CharField(max_length=100)
+
 class Property(models.Model):
     name = models.CharField(max_length=200)
     type = models.CharField(max_length=100)
@@ -21,6 +24,7 @@ class Property(models.Model):
         return self.species.kingdom
 
     species = models.ForeignKey(Species, null=True)
+    protein = models.ForeignKey(Protein, null=True)
 
 
 class Recipe(models.Model):
@@ -31,5 +35,4 @@ class Recipe(models.Model):
     def kingdom(self):
         return self.species.kingdom
 
-    species = models.ForeignKey(Species)
-    properties = models.ManyToManyField(Property)
+

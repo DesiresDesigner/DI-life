@@ -1,8 +1,7 @@
-from life.models import Recipe, Property
-from Bio import SeqIO
-from Bio.Seq import Seq
-
+from life.models import Recipe, Property, Protein
 __author__ = 'desiresdesigner'
+
+import random
 
 
 def create(kingdom, species, proplist):
@@ -14,38 +13,40 @@ def create(kingdom, species, proplist):
 def create_bact(species, proplist):
     pass
 
-
-def get_seq(prop):
-    pass
-
-
-def cut(plazmid):
-    pass
-
-
-def prepare_injectable(prop_seq):
-    pass
-
-
-def inject(injectable, cutted):
-    pass
-
-
-def legate(plazmid):
-    pass
-
+restriction_sites = ["HpaI",
+		"FspI",
+		"KpnI",
+		"ApaI",
+		"XhoI",
+		"SalI",
+		"ClaI",
+		"HindIII",
+		"EcoRV",
+		"EcoRI",
+		"PstI",
+		"SmaI",
+		"XmaI",
+		"BamHI",
+		"SpeI",
+		"XbaI",
+		"NotI",
+		"SacII",
+		"SacI",
+		"StuI",
+		"ApaLI",
+		"NruI"]
 
 def create_plant(species, proplist):
-    plazmid = Seq()
     recipe = Recipe()
 
     for prop in proplist:
         recipe.properties.add(prop)
-        prop_seq = get_seq(prop)
-
+        recipe.description += "pGreenII\n"
 
         if prop.type == "color":
-            cutted = cut(plazmid)
-            injectable = prepare_injectable(prop_seq)
-            plazmid = inject(injectable, cutted)
-            legate(plazmid)
+            protein = prop.protein
+
+            recipe.description += (random.choice(restriction_sites) + "\n")
+            recipe.description += (protein.name + "\n")
+        elif prop.type == "smell":
+            pass

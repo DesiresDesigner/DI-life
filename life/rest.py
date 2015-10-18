@@ -32,6 +32,14 @@ class SpeciesRest:
         else:
             return HttpResponseBadRequest("bad request")
 
+
+    def get_recent_recipe(request):
+        recipe = Recipe()
+        recipe.name = "Winter bear"
+        recipe.description = "Get autobus; Send to war; La-la-la; Arbus; Airbus; OLOLO; SHOW MUST GO ON!; std::endl"
+
+        return HttpResponse(recipe.description)
+
     def get_props_for_spec(request, specname):
         if (request.method == 'GET'):
             all_props = Property.objects.filter(Q(species=Species.objects.filter(name=specname)) | Q(species_id=None))
