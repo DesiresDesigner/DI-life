@@ -6,9 +6,9 @@ __author__ = 'desiresdesigner'
 
 
 def create(kingdom, species, proplist):
-    if kingdom.name == "Bacteries":
+    if kingdom.name == "Bacteria":
         return create_bact(species, proplist)
-    elif kingdom.name == "Plants":
+    elif kingdom.name == "Plant":
         return create_plant(species, proplist)
 
 def create_bact(species, proplist):

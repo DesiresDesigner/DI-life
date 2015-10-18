@@ -45,4 +45,7 @@ class SpeciesRest():
 
 
 def index(request):
-    return render(request, 'life/index.html')
+    return render(request, 'life/index.html',
+                  {
+                      'fclass': Kingdom.objects.get(id=1),
+                      'sclass': Kingdom.objects.get(id=2)})

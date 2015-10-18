@@ -8,6 +8,7 @@ class Kingdom(models.Model):
 
 class Species(models.Model):
     name = models.CharField(max_length=200)
+    friendly_name = models.CharField(max_length=200, null=True)
     kingdom = models.ForeignKey(Kingdom)
 
 

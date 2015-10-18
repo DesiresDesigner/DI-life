@@ -91,7 +91,7 @@ header div.description p {
 div.search_menu div.content {
 	margin: 0 auto;
 	margin-top: 10px;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	width: 90%;
 	overflow: hidden;
 }
