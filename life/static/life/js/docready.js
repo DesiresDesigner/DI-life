@@ -10,6 +10,7 @@ $(document).ready(function() {
         var className = $(event.target).attr('for');
         $('#step3').slideUp(400, function(){});
         $('iframe').hide();
+        $('#generated_result').slideUp(400, function(data){});
 
         console.log("/species/" + className);
         $.ajax({
@@ -77,12 +78,12 @@ $(document).ready(function() {
                 iframe.src = 'http://www.plasmid.com/order_preps/';
                 iframe.style.width = '100%';
                 iframe.style.height = '1000px';
-                const wresult = document.getElementById('generated_result');
-                wresult.replaceChild(iframe, wresult.getElementsByTagName('img')[0]);
+                const gresult = document.getElementById('generated_result');
+                gresult.appendChild(iframe);
+                $(gresult).show();
+                $('#waiting_result').hide();
                 iframe.onload = function (e) {
-                    setTimeout(function () {
-                        $('body').scrollTo(400);
-                    }, 4000);
+                    setTimeout(function () {}, 4000);
                 };
             }
          });
