@@ -31,7 +31,7 @@ div.search_result {
 p {
     text-align: center;
     font-size: 16;
-    font-weight: bold;
+    /*font-weight: bold;*/
     color: black
 }
 

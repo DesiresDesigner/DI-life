@@ -64,9 +64,6 @@ $(document).ready(function() {
     });
 
     $('#get_recipe_btn').click(function() {
-        /*$('#waiting_submit').slideUp(400, function(){
-            $('#waiting_result').show();
-        });*/
         $('#waiting_result_animation').show();
     });
 
