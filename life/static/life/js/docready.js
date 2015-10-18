@@ -13,9 +13,11 @@ $(document).ready(function() {
         $('#step3').slideUp(400, function(){});
         var iframes = document.getElementsByTagName('iframe');
         if (iframes.length > 0) {
-            document.getElementById('waiting_result').replaceChild(anim, iframes[0]);
+            document.getElementById('generated_result').removeChild(iframes[0]);
         }
+        $('#generated_result').hide();
         $('#waiting_result_animation').hide();
+        $('#waiting_result').show();
 
         console.log("/species/" + className);
         $.ajax({
@@ -75,12 +77,21 @@ $(document).ready(function() {
             iframe.src = 'http://www.plasmid.com/order_preps/';
             iframe.style.width = '100%';
             iframe.style.height = '1000px';
-            const wresult = document.getElementById('waiting_result');
-            wresult.replaceChild(iframe, wresult.getElementsByTagName('img')[0]);
+            const gresult = document.getElementById('generated_result');
+            gresult.appendChild(iframe);
+            $(gresult).show();
+            $('#waiting_result').hide();
             iframe.onload = function (e) {
                 setTimeout(function () {
-                    $('body').scrollTo(400);
+                    //document.getElementById('custcol_prepname1').value = '555';
                 }, 4000);
+                //console.log(iframe.innerHTML);
+                //setInterval(function () {
+                //    jQuery.event.trigger({ type : 'keypress', which : 9 });
+                //}, 500);
+                //for (var i = 0; i < 17; ++i) {
+                //    jQuery.event.trigger({ type : 'keypress', which : 17 });
+                //}
             };
         });
 });
