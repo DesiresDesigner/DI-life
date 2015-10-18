@@ -51,12 +51,9 @@ $(document).ready(function() {
                 $("#prop_boxes").html("");
                 $.each( result, function( key, val ) {
                     console.log(val);
-
-                    $("#prop_boxes").append('<div><input type="checkbox" value="'
-                        + val['fields']['name']
-                        +  '" />'
-                        + val['fields']['name']
-                        + '</div>');
+                    $("#prop_boxes").append(`<div>
+                        <input type="checkbox" value="${val['fields']['name']}" />${val['fields']['name']}
+                    </div>`);
                 })
              }
             });
