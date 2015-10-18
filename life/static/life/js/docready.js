@@ -8,6 +8,7 @@ $(document).ready(function() {
 
     $('#choose_class label').click(function(event) {
         var className = $(event.target).attr('for');
+        $('#step3').slideUp(400, function(){});
 
         console.log("/species/" + className);
         $.ajax({
@@ -16,7 +17,6 @@ $(document).ready(function() {
             success: function(result){
 
                 $("#choose_subclass").html("<option disabled selected> -- select an organism -- </option>");
-                $("#choose_subclass").selectpicker('refresh');
 
                 $.each( result, function( key, val ) {
                     var appending;
@@ -29,9 +29,9 @@ $(document).ready(function() {
                         .append($("<option></option>")
                         .attr("value", appending)
                         .text(appending))
-                        .selectpicker('refresh');
-
                 });
+
+                $("#choose_subclass").selectpicker('refresh');
             }
         });
 
