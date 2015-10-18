@@ -1,8 +1,6 @@
 'use strict';
 $(document).ready(function() {
 
-    const anim = document.getElementById('waiting_result_animation');
-
     $('.selectpicker').selectpicker({
       //style: 'btn-warning',
       size: 4
@@ -11,13 +9,7 @@ $(document).ready(function() {
     $('#choose_class label').click(function(event) {
         var className = $(event.target).attr('for');
         $('#step3').slideUp(400, function(){});
-        var iframes = document.getElementsByTagName('iframe');
-        if (iframes.length > 0) {
-            document.getElementById('generated_result').removeChild(iframes[0]);
-        }
-        $('#generated_result').hide();
-        $('#waiting_result_animation').hide();
-        $('#waiting_result').show();
+        $('iframe').hide();
 
         console.log("/species/" + className);
         $.ajax({
@@ -73,25 +65,26 @@ $(document).ready(function() {
 
     $('#get_recipe_btn').click(function() {
         $('#waiting_result_animation').show();
-            const iframe = document.createElement('iframe');
-            iframe.src = 'http://www.plasmid.com/order_preps/';
-            iframe.style.width = '100%';
-            iframe.style.height = '1000px';
-            const gresult = document.getElementById('generated_result');
-            gresult.appendChild(iframe);
-            $(gresult).show();
-            $('#waiting_result').hide();
-            iframe.onload = function (e) {
-                setTimeout(function () {
-                    //document.getElementById('custcol_prepname1').value = '555';
-                }, 4000);
-                //console.log(iframe.innerHTML);
-                //setInterval(function () {
-                //    jQuery.event.trigger({ type : 'keypress', which : 9 });
-                //}, 500);
-                //for (var i = 0; i < 17; ++i) {
-                //    jQuery.event.trigger({ type : 'keypress', which : 17 });
-                //}
-            };
-        });
+
+         $.ajax({
+            url: "/create",
+            success: function(result){
+                $('#waiting_result_animation').hide();
+
+                $('#generated_result').slideDown(400, function(data){});
+
+                const iframe = document.createElement('iframe');
+                iframe.src = 'http://www.plasmid.com/order_preps/';
+                iframe.style.width = '100%';
+                iframe.style.height = '1000px';
+                const wresult = document.getElementById('generated_result');
+                wresult.replaceChild(iframe, wresult.getElementsByTagName('img')[0]);
+                iframe.onload = function (e) {
+                    setTimeout(function () {
+                        $('body').scrollTo(400);
+                    }, 4000);
+                };
+            }
+         });
+    });
 });
