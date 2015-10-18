@@ -9,16 +9,14 @@ $(document).ready(function() {
     $('#choose_class label').click(function(event) {
         var className = $(event.target).attr('for');
 
-        const cs = document.getElementById('choose_subclass');
-        let first = cs.options[0];
-        cs.innerHTML = '';
-        cs.appendChild(first);
-
         console.log("/species/" + className);
         $.ajax({
             dataType: "json",
             url: "/species/" + className,
             success: function(result){
+
+                $("#choose_subclass").html("<option disabled selected> -- select an organism -- </option>");
+
                 $.each( result, function( key, val ) {
                     var appending;
                     if (val["fields"]["friendly_name"] == null)
@@ -40,7 +38,7 @@ $(document).ready(function() {
         $('#step2').slideDown(400, function(){});
     });
 
-    $('#choose_subclass').change(function(event) {
+    $('#choose_subclass').change(function() {
         var subclassName = this.value;
         $('#step3').slideDown(400, function(data){
 
