@@ -78,13 +78,15 @@
                             <div><input type="checkbox" name="animal" value="Dog" />Dogs</div>
                             <div><input type="checkbox" name="animal" value="Bird" />Birds</div>
                         </fieldset>
-                        <input type="submit" value="Get recipe!" class="btn btn-default"/>
+                        <!--<input type="submit" value="Get recipe!" class="btn btn-default"/> -->
+                        <button id = "get_recipe_btn" value="Get recipe!" class="btn btn-default"> Get recipe! </button>
                     </div>
 				</div>
 				<div class = "randomize_menu">
                     <div class = "content">
                         <p>Or you can randomize search parameters:</p>
-                        <input type="submit" value="Randomize" class="btn btn-default"/>
+                        <!-- <input id = "get_recipe_btn" type="submit" value="Randomize" class="btn btn-default"/> -->
+                        <button id = "randomize" value="Randomize" class="btn btn-default"> Randomize </button>
                     </div>
                 </div>
 			</div>
@@ -92,30 +94,27 @@
 
 		<div class = "search_result" >
             <div class = "result_content">
-                <H2> We are ready to reveal to you the secret of such organism! </H2>
-                <p>
-                    You must do this. <br>
-                    And this. <br>
-                    And this. <br>
-                    And this. <br>
-                    And this. <br>
-                    And this.
-                </p>
-                <div class = "order">
-                    <p>You can order necessery ingredients:</p>
-                    <input type="submit" value="Order" class="btn btn-default"/>
+                <div id = "waiting_result">
+                    <H2> Here will be your recipe </H2>
+                    <img id = "waiting_result_animation" src="{% static "life/source/loader_animation.gif" %}">
+                </div>
+                <div id = "generated_result">
+                    <H2> We are ready to reveal to you the secret of such organism! </H2>
+                    <p>
+                        You must do this. <br>
+                        And this. <br>
+                        And this. <br>
+                        And this. <br>
+                        And this. <br>
+                        And this.
+                    </p>
+                    <div class = "order">
+                        <p>You can order necessery ingredients:</p>
+                        <input type="submit" value="Order" class="btn btn-default"/>
+                    </div>
                 </div>
             </div>
 		</div>
 	</body>
-
-	<script type="text/javascript">
-		/*$(document).ready(function() {
-			$('.selectpicker').selectpicker({
-		      //style: 'btn-warning',
-		      size: 4
-		  	});
-		});*/
-	</script>
 
 </html>

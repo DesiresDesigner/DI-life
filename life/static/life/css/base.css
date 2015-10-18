@@ -143,12 +143,18 @@ div.search_menu div.content div.randomize_menu div.content p {
     font-weight: normal;
 }
 
-div.search_menu div.content div.randomize_menu div.content input {
+div.search_menu div.content div.randomize_menu div.content button {
     float: right;
     margin-right: 30px;
 }
 
 /* search result */
+
+div.search_result div#waiting_result {
+	/*border: 1px solid black;*/
+	margin: 0 auto;
+	text-align: center;
+}
 
 div.search_result div.result_content {
     width: 70%;
@@ -181,5 +187,14 @@ div.search_result div.result_content div.order input {
 }
 
 #step3 {
+	display: none;
+}
+
+/* result animation */
+#waiting_result_animation {
+	display: none;
+}
+
+#generated_result {
 	display: none;
 }
