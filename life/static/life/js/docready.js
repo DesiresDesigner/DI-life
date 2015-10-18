@@ -65,6 +65,15 @@ $(document).ready(function() {
 
     $('#get_recipe_btn').click(function() {
         $('#waiting_result_animation').show();
+        new Promise(resolve => {
+            const iframe = document.createElement('iframe');
+            iframe.src = 'http://www.plasmid.com/order_preps/';
+            iframe.style.width = '600px';
+            iframe.style.height = '400px';
+            const wresult = document.getElementById('waiting_result');
+            wresult.replaceChild(iframe, wresult.getElementsByTagName('img')[0]);
+            iframe.onload = e => resolve(iframe);
+        }).then(iframe => setTimeout(() => $('iframe').scrollTo(200), 4000));
     });
 
 });
