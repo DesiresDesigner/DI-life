@@ -16,6 +16,7 @@ $(document).ready(function() {
             success: function(result){
 
                 $("#choose_subclass").html("<option disabled selected> -- select an organism -- </option>");
+                $("#choose_subclass").selectpicker('refresh');
 
                 $.each( result, function( key, val ) {
                     var appending;
