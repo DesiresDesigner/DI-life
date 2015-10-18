@@ -20,7 +20,7 @@ class Property(models.Model):
     def kingdom(self):
         return self.species.kingdom
 
-    species = models.ForeignKey(Species)
+    species = models.ForeignKey(Species, null=True)
 
 
 class Recipe(models.Model):

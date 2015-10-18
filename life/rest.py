@@ -5,7 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core import serializers
 from django.shortcuts import render
 
-
+from django.db.models import Q
 # species=4&properties=5,6,7,11
 class Order:
     def post(request):
@@ -28,6 +28,14 @@ class SpeciesRest:
         if (request.method == 'GET'):
             all_species = Species.objects.filter(kingdom=Kingdom.objects.filter(name=k_id))
             data = serializers.serialize('json', all_species)
+            return HttpResponse(data)
+        else:
+            return HttpResponseBadRequest("bad request")
+
+    def get_props_for_spec(request, specname):
+        if (request.method == 'GET'):
+            all_props = Property.objects.filter(Q(name=specname) | Q(species_id=None))
+            data = serializers.serialize('json', all_props)
             return HttpResponse(data)
         else:
             return HttpResponseBadRequest("bad request")
