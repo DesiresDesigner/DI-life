@@ -34,7 +34,7 @@ class SpeciesRest:
 
     def get_props_for_spec(request, specname):
         if (request.method == 'GET'):
-            all_props = Property.objects.filter(Q(name=specname) | Q(species_id=None))
+            all_props = Property.objects.filter(Q(species=Species.objects.filter(name=specname)) | Q(species_id=None))
             data = serializers.serialize('json', all_props)
             return HttpResponse(data)
         else:
