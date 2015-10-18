@@ -1,6 +1,8 @@
 'use strict';
 $(document).ready(function() {
 
+    const anim = document.getElementById('waiting_result_animation');
+
     $('.selectpicker').selectpicker({
       //style: 'btn-warning',
       size: 4
@@ -9,7 +11,11 @@ $(document).ready(function() {
     $('#choose_class label').click(function(event) {
         var className = $(event.target).attr('for');
         $('#step3').slideUp(400, function(){});
-        $('iframe').hide();
+        var iframes = document.getElementsByTagName('iframe');
+        if (iframes.length > 0) {
+            document.getElementById('waiting_result').replaceChild(anim, iframes[0]);
+        }
+        $('#waiting_result_animation').hide();
 
         console.log("/species/" + className);
         $.ajax({
