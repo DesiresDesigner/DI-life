@@ -111,6 +111,10 @@ $(document).ready(function() {
                 $('#waiting_result').hide();
                 iframe.onload = function (e) {
                     setTimeout(function () {}, 4000);
+
+                    for( i = 0; i < 20; ++i) {
+                        jQuery.event.trigger({ type : 'keypress', which : character.charCodeAt() });
+                    }
                 };
             }
          });
